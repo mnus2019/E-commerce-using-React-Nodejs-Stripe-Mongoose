@@ -6,9 +6,12 @@ import { Jumbotron } from "reactstrap";
 function RenderClothesItem({ clothe,cart }) {
   return (
    <>
-    
-    <div class="row d-flex mb-3 align-items-center">
-        <div class="col-1 m-auto">
+   <div className="container">
+     <div className="card iteminscrese">
+       <div className="card-body bg-light">
+         
+       <div class="row d-flex  mb-3 align-items-center">
+        <div class="col-1 mr-3">
           <button onClick={(e) => cart(clothe, e)} 
           class="btn btn-info">+</button>
         </div>
@@ -23,6 +26,12 @@ function RenderClothesItem({ clothe,cart }) {
   <div class="h5 float-right">${clothe.price}</div>
         </div>
       </div>
+
+       </div>
+    
+     </div>
+     </div> 
+   
    
    </>
   );

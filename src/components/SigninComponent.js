@@ -37,6 +37,7 @@ class SignIn extends Component {
   handleSubmit(values) {
     console.log("Current state is: " + JSON.stringify(values));
     alert("Current state is: " + JSON.stringify(values));
+ 
   }
   render() {
     return (
@@ -112,7 +113,13 @@ class SignIn extends Component {
                   />
                 </Col>
               </Row>
-             
+              <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"/> Remember me
+        </label>
+      </div >
+      <button className="btn  btn-primary btn-block " type="submit">Sign in</button>
+      <p className="mt-5 mb-3 text-muted text-center">&copy; 2020-2021</p>
               
             </LocalForm>
           </div>

@@ -26,7 +26,7 @@ class SearchProduct extends Component{
                 <div className="input-group-append">
                   <button
                     type="button"
-                    className="btn btn-primary dropdown-toggle"
+                    className="btn btn-info dropdown-toggle"
                     data-toggle="dropdown"
          
 

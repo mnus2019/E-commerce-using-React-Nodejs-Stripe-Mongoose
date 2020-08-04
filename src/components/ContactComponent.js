@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  Button,
-  Label,
-  Col,
-  Row,
-} from "reactstrap";
+Col,Row,
+ 
+  Button,} from "reactstrap";
 
 import { Control, LocalForm, Errors } from "react-redux-form";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -46,57 +42,14 @@ class Contact extends Component {
   }
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <Breadcrumb>
-              <BreadcrumbItem>
-                <Link to="/home">Home</Link>
-              </BreadcrumbItem>
-              <BreadcrumbItem active>Contact Us</BreadcrumbItem>
-            </Breadcrumb>
-            <h2>Contact Us</h2>
-            <hr />
-          </div>
-        </div>
-
-        <div className="row row-content align-items-center">
-          <div className="col-sm-4">
-            <h5>Our Address</h5>
-            <address>
-              1 Nucamp Way
-              <br />
-              Seattle, WA 98001
-              <br />
-              U.S.A.
-            </address>
-          </div>
-          <div className="col">
-            <a role="button" className="btn btn-link" href="tel:+12065551234">
-              <i className="fa fa-phone"></i> 1-206-555-1234
-            </a>
-            <br />
-            <a
-              role="button"
-              className="btn btn-link"
-              href="mailto:fakeemail@fakeemail.co"
-            >
-              <i className="fa fa-envelope-o"></i> campsites@nucamp.co
-            </a>
-          </div>
-        </div>
-        <div className="row row-content">
-          <div className="col-12">
-            <h2>Send us your Feedback</h2>
-            <hr />
-          </div>
-          <div className="col-md-10">
+     <div>
+          <div className="about  row-content ">
+            <div className="container">
+           
             <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-              <Row className="form-group">
-                <Label htmlFor="firstName" md={2}>
-                  First Name
-                </Label>
-                <Col md={10}>
+              <Row className="form-group mt-5">
+             
+                  <Col className="col">
                   <Control.text
                     model=".firstName"
                     id="firstName"
@@ -121,12 +74,9 @@ class Contact extends Component {
                     }}
                   />
                 </Col>
-              </Row>
-              <Row className="form-group">
-                <Label htmlFor="lastName" md={2}>
-                  Last Name
-                </Label>
-                <Col md={10}>
+             
+            
+                  <Col className="col">
                   <Control.text
                     model=".lastName"
                     id="lastName"
@@ -153,10 +103,8 @@ class Contact extends Component {
                 </Col>
               </Row>
               <Row className="form-group">
-                <Label htmlFor="phoneNum" md={2}>
-                  Phone
-                </Label>
-                <Col md={10}>
+            
+                  <Col >
                   <Control.text
                     model=".phoneNum"
                     id="phoneNum"
@@ -185,10 +133,8 @@ class Contact extends Component {
                 </Col>
               </Row>
               <Row className="form-group">
-                <Label htmlFor="email" md={2}>
-                  Email
-                </Label>
-                <Col md={10}>
+             
+                  <Col >
                   <Control.text
                     model=".email"
                     id="email"
@@ -213,30 +159,31 @@ class Contact extends Component {
                 </Col>
               </Row>
               <Row className="form-group">
-                <Label htmlFor="feedback" md={2}>
-                  Your Feedback
-                </Label>
-                <Col md={10}>
+           
+                  <Col >
                   <Control.textarea
                     model=".feedback"
                     id="feedback"
                     name="feedback"
-                    rows="12"
+                    rows="4"
                     className="form-control"
                   />
                 </Col>
               </Row>
               <Row className="form-group">
-                <Col md={{ size: 10, offset: 2 }}>
-                  <Button type="submit" color="primary">
-                    Send Feedback
+                <Col >
+                  <Button className="mb-3" type="submit" color="outline-primary">
+                  Submit
                   </Button>
                 </Col>
               </Row>
-            </LocalForm>
+             
+            </LocalForm> 
+            </div>
+            </div>
           </div>
-        </div>
-      </div>
+        
+      
     );
   }
 }

@@ -6,7 +6,7 @@ import { Card, CardImg, CardTitle, CardBody, Jumbotron } from "reactstrap";
 
 function Product({ coffee, cart }) {
   return (
-    <Card>
+    <Card className="iteminscrese bg-light">
       
         <CardImg className="itemImg" width="100%" height="50%" src={coffee.image} alt={coffee.name} />
         <CardBody>
@@ -29,7 +29,9 @@ function Product({ coffee, cart }) {
 class CoffeeShopping extends Component {
   render() {
     let order;
-    let filteredCoffee = this.props.coffee;
+    console.log(this.props.coffees.coffees)
+    let filteredCoffee = this.props.coffees.coffees;
+   
     if (this.props.orderDir === "asc") {
       order = 1;
     } else {

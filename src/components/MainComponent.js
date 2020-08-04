@@ -9,28 +9,52 @@ import Location from "./LocationComponent";
 import SignIn from "./SigninComponent";
 import Checkout from "./CheckoutComponent";
 import OnlineStore from "./OnlineStoreComponent";
-import { SUITES } from "../shared/suite";
-import { COFFEE } from "../shared/coffee";
-import { LOCATIONS } from "../shared/location";
+// import { SUITES } from "../shared/suite";
+// import { COFFEE } from "../shared/coffee";
 
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import SuiteShopping from "./SuiteShoppingComponent";
 import CoffeeShopping from "./CoffeeShoppingComponent";
 import ClothesShopping from "./ClothesShoppingComponent";
 import PayCheckout from "./PaycheckoutComponent";
 
+import { connect } from "react-redux";
+import {
+  fetchCoffees,
+  fetchSuites,
+  fetchLocations,
+} from "../redux/ActionCreators";
+
+const mapStateToProps = (state) => {
+  return {
+    suites: state.Suites,
+    coffees: state.Coffees,
+    locations: state.Locations,
+  };
+};
+
+const mapDispatchToProps = {
+  fetchCoffees: () => fetchCoffees(),
+  fetchSuites: () => fetchSuites(),
+  fetchLocations: () => fetchLocations(),
+};
+
 class Main extends Component {
+  componentDidMount() {
+    this.props.fetchSuites();
+    this.props.fetchCoffees();
+    this.props.fetchLocations();
+  }
   constructor() {
     super();
     this.state = {
-      suites: SUITES,
-      coffee: COFFEE,
-      locations: LOCATIONS,
       orderBy: "name",
       orderDir: "asc",
       queryText: "",
       cart: [],
     };
+
     this.AddCart = this.AddCart.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -38,27 +62,27 @@ class Main extends Component {
     this.searchOrder = this.searchOrder.bind(this);
   }
 
-  changeorder(order, dir) {
+  changeorder = (order, dir) => {
     this.setState({
       orderBy: order,
       orderDir: dir,
     });
-  }
+  };
 
-  searchOrder(query) {
+  searchOrder = (query) => {
     this.setState({
       queryText: query,
     });
-  }
+  };
 
-  AddCart(item, e) {
+  AddCart = (item, e) => {
     e.preventDefault();
     var existing = this.state.cart.filter((p) => p.product.id === item.id);
     if (existing.length) {
       const withoutExisting = this.state.cart.filter(
         (p) => p.product.id !== item.id
       );
-      const updatedproduct = { ...existing[0], qty: existing[0].qty + 1};
+      const updatedproduct = { ...existing[0], qty: existing[0].qty + 1 };
       this.setState({
         cart: [...withoutExisting, updatedproduct],
       });
@@ -68,24 +92,24 @@ class Main extends Component {
         isopen: !this.state.isopen,
       });
     }
-  }
+  };
 
-  deleteItem(item1, index, e) {
+  deleteItem = (item1, index, e) => {
     e.stopPropagation();
     this.setState({
       cart: this.state.cart.filter((item, i) =>
         i === index && item.qty > 1 ? item.qty-- : i !== index
       ),
     });
-  }
-  addItem(item1, index, e) {
+  };
+  addItem = (item1, index, e) => {
     e.stopPropagation();
     this.setState({
       cart: this.state.cart.filter((item, i) =>
         i === index ? item.qty++ : i !== index
       ),
     });
-  }
+  };
 
   render() {
     return (
@@ -96,63 +120,70 @@ class Main extends Component {
           addItem={this.addItem}
           cartQty={this.cartQty}
         />
-        <Switch>
-          <Route
-            path="/home"
-            render={() => <Home suites={this.state.suites} />}
-          />
-          <Route path="/member" component={Member} />
-          <Route path="/about" component={About} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/location">
-            <Location locations={this.state.locations} />{" "}
-          </Route>
-          <Route path="/suiteShopping">
-            <SuiteShopping
-              AddCart={this.AddCart}
-              suites={this.state.suites}
-              changeorder={this.changeorder}
-              searchOrder={this.searchOrder}
-              orderBy={this.state.orderBy}
-              orderDir={this.state.orderDir}
-              queryText={this.state.queryText}
-            />
-          </Route>
-          <Route path="/coffeeShopping">
-            <CoffeeShopping
-              AddCart={this.AddCart}
-              coffee={this.state.coffee}
-              changeorder={this.changeorder}
-              searchOrder={this.searchOrder}
-              orderBy={this.state.orderBy}
-              orderDir={this.state.orderDir}
-              queryText={this.state.queryText}
-            />
-          </Route>
-          <Route path="/checkout">
-            <Checkout
-              cart={this.state.cart}
-              deleteItem={this.deleteItem}
-              addItem={this.addItem}
-            />
-          </Route>
-          <Route path="/onlinestore">
-            <OnlineStore />
-          </Route>
-          <Route path="/clothesshopping">
-            <ClothesShopping AddCart={this.AddCart} />
-          </Route>
-          <Route path="/paycheckout">
-            <PayCheckout />
-          </Route>
+        <TransitionGroup>
+          <CSSTransition
+            key={this.props.locations.locations.id}
+            classNames="page"
+            timeout={300}
+          >
+            <Switch>
+              <Route path="/home">
+                <Home exact suites={this.props.suites} />
+              </Route>
+              <Route exact path="/member" component={Member} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/blog" component={Blog} />
+              <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/location">
+                <Location locations={this.props.locations} />{" "}
+              </Route>
+              <Route path="/suiteShopping">
+                <SuiteShopping
+                  AddCart={this.AddCart}
+                  suites={this.props.suites}
+                  changeorder={this.changeorder}
+                  searchOrder={this.searchOrder}
+                  orderBy={this.state.orderBy}
+                  orderDir={this.state.orderDir}
+                  queryText={this.state.queryText}
+                />
+              </Route>
+              <Route path="/coffeeShopping">
+                <CoffeeShopping
+                  AddCart={this.AddCart}
+                  coffees={this.props.coffees}
+                  changeorder={this.changeorder}
+                  searchOrder={this.searchOrder}
+                  orderBy={this.state.orderBy}
+                  orderDir={this.state.orderDir}
+                  queryText={this.state.queryText}
+                />
+              </Route>
+              <Route path="/checkout">
+                <Checkout
+                  cart={this.state.cart}
+                  deleteItem={this.deleteItem}
+                  addItem={this.addItem}
+                />
+              </Route>
+              <Route path="/onlinestore">
+                <OnlineStore />
+              </Route>
+              <Route path="/clothesshopping">
+                <ClothesShopping AddCart={this.AddCart} />
+              </Route>
+              <Route path="/paycheckout">
+                <PayCheckout />
+              </Route>
 
-          <Redirect to="/home" />
-        </Switch>
+              <Redirect to="/home" />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
         <Footer />
       </div>
     );
   }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

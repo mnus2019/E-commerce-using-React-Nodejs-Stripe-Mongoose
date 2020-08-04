@@ -6,7 +6,7 @@ import { Card, CardImg, CardTitle, CardBody, Jumbotron } from "reactstrap";
 
 function Product({ suite, cart }) {
   return (
-    <Card>
+    <Card className="iteminscrese bg-light">
       <CardImg
         className="itemImg"
         width="100%"
@@ -16,8 +16,8 @@ function Product({ suite, cart }) {
       <CardBody>
         <CardTitle>{suite.name}</CardTitle>${suite.price}
         <div className="text-center">
-          <button className="btn  btn-primary" onClick={(e) => cart(suite, e)}>
-            Add to Cart
+          <button className="btn  btn-success" onClick={(e) => cart(suite, e)}>
+            + Add to Cart
           </button>
         </div>
       </CardBody>
@@ -28,7 +28,7 @@ function Product({ suite, cart }) {
 class SuiteShopping extends Component {
   render() {
     let order;
-    let filteredSuites = this.props.suites;
+    let filteredSuites = this.props.suites.suites;
     if (this.props.orderDir === "asc") {
       order = 1;
     } else {

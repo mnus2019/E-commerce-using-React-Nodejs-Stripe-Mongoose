@@ -15,7 +15,7 @@ function RenderLocationItem({ location }) {
 }
 
 function Location(props) {
-  const Location = props.locations.map((location) => {
+  const Location = props.locations.locations.map((location) => {
     return (
       <div key={location.id} className="col-md-5 m-1">
         <RenderLocationItem location={location} />

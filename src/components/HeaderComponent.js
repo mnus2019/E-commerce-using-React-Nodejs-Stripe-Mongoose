@@ -11,9 +11,8 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+
 import { Link } from "react-router-dom";
-
-
 
 function CartQty(props) {
   let qty = 0;
@@ -91,27 +90,24 @@ class Header extends Component {
                   <Link className="nav-link" to="/signin">
                     SignIn
                   </Link>
-                </NavItem>{"....................................................................................."}
+                </NavItem>
+               {""}
+               <UncontrolledDropdown  nav inNavbar direction="left">
+             <DropdownToggle className="btn btn-success" >$</DropdownToggle>
 
-                <UncontrolledDropdown nav inNavbar direction="left">
-                  <DropdownToggle nav className="btn  btn-outline-success" >
-                    $
-                  </DropdownToggle>
-
-                  <DropdownMenu >
+                  <DropdownMenu>
                     <DropdownItem>
                       <div className="my-2">
                         <span className="badge badge-pill badge-success float-right">
-                         cartQty: <CartQty cart={this.props.cart} />
+                          cartQty: <CartQty cart={this.props.cart} />
                         </span>
                       </div>
                     </DropdownItem>
                     <DropdownItem>
                       {this.props.cart.map((item, index) => {
                         return (
-                          <div  key={item.product.id}>
-                            <div className="dropdown-item,index-text text-nowrap text-right"
-                            >
+                          <div key={item.product.id}>
+                            <div className="dropdown-item,index-text text-nowrap text-right">
                               <span className="badge badge-pill badge-warning align-text-top mr-1">
                                 {item.qty}
                               </span>
@@ -122,14 +118,16 @@ class Header extends Component {
                               </span>
                               <button
                                 onClick={(e) =>
-                                  this.props.deleteItem(item, index,e)
+                                  this.props.deleteItem(item, index, e)
                                 }
                                 className="badge badge-danger text-white"
                               >
                                 -
                               </button>
                               <button
-                                onClick={(e) => this.props.addItem(item, index,e)}
+                                onClick={(e) =>
+                                  this.props.addItem(item, index, e)
+                                }
                                 className="badge badge-success text-white"
                               >
                                 +
@@ -140,11 +138,16 @@ class Header extends Component {
                       })}
                     </DropdownItem>
                     <div className="mt-2 mr-4 text-right">
-                   <Link role= "button" className="btn btn-success"  to="/checkout">Checkout</Link>
+                      <Link
+                        role="button"
+                        className="btn btn-success"
+                        to="/checkout"
+                      >
+                        Checkout
+                      </Link>
                     </div>
-                  
                   </DropdownMenu>
-                </UncontrolledDropdown>
+                </UncontrolledDropdown> 
               </Nav>
             </Collapse>
           </div>
