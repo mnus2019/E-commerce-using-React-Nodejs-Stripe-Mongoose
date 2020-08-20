@@ -25,7 +25,7 @@ function PartnerList(props) {
     .filter((suite) => suite.campsiteId < 2)
     .map((suites) => {
       return (
-        <div key={suites.id} className="col-md-5 m-1">
+        <div key={suites.id} className="col m-1">
           <RenderDirectoryItem suites={suites} />
         </div>
       );
@@ -39,8 +39,8 @@ function PartnerList(props) {
   }
 
   return (
-    <div className="col mt-4">
-      <Media list>{directory}</Media>
+    <div className="col-md-4 m-1">
+      <div >{directory}</div>
     </div>
   );
 }

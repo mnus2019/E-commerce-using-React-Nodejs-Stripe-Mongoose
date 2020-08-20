@@ -5,11 +5,16 @@ import { Link } from "react-router-dom";
 function RenderLocationItem({ location }) {
   return (
     <Card>
-      <Link to={`/directory/${location.id}`}>
+      <Link to={`/location/${location.id}`}>
         <CardImg width="100%" src={location.image} alt={location.name} />
-
-        <CardBody>{location.name}</CardBody>
-      </Link>
+        </Link>
+        <CardBody>
+          <div>
+          {location.name}
+          </div>
+  <div>{location.place}</div>
+        </CardBody>
+    
     </Card>
   );
 }

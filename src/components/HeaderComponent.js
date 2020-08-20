@@ -57,45 +57,45 @@ class Header extends Component {
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar>
                 <NavItem>
-                  <Link className="nav-link" to="/home">
+                  <Link className="nav-link" to="/home" onClick={this.toggleNav}>
                     Home
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <Link className="nav-link" to="/member">
+                  <Link className="nav-link" to="/member" onClick={this.toggleNav}>
                     Member
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <Link className="nav-link" to="/blog">
+                  <Link className="nav-link" to="/blog" onClick={this.toggleNav}>
                     Blog
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <Link className="nav-link" to="/location">
+                  <Link className="nav-link" to="/location" onClick={this.toggleNav}>
                     Locations
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <Link className="nav-link" to="/about">
+                  <Link className="nav-link" to="/about" onClick={this.toggleNav}>
                     About
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <Link className="nav-link" to="/onlinestore">
+                  <Link className="nav-link" to="/onlinestore" onClick={this.toggleNav}>
                     Online Store
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <Link className="nav-link" to="/signin">
+                  <Link className="nav-link" to="/signin" onClick={this.toggleNav}>
                     SignIn
                   </Link>
                 </NavItem>
                {""}
                <UncontrolledDropdown  nav inNavbar direction="left">
-             <DropdownToggle className="btn btn-success" >$</DropdownToggle>
+             <DropdownToggle  className="btn btn-success" >$</DropdownToggle>
 
-                  <DropdownMenu>
+                  <DropdownMenu> 
                     <DropdownItem>
                       <div className="my-2">
                         <span className="badge badge-pill badge-success float-right">
