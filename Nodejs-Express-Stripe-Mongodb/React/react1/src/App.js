@@ -7,7 +7,7 @@ import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
-const stripePromise = loadStripe('pk_test_51HZKUOLQorsKb9OTLvcX9u5So6B4UUrhKgGrN3Iq0NTE2LR8b1jW4BcOjNT1PfgSNguJfw41mJdKiOjFkdUUwCDD00o9sYAVYy');
+const stripePromise = loadStripe('publishiableKey');
 
 
 
