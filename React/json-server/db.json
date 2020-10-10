@@ -1,0 +1,539 @@
+{
+  "suites": [
+    {
+      "id": 0,
+      "campsiteId": 0,
+      "name": "Best Luxury Accomodations",
+      "image": "/img/suiteImg/BestLuxuryAccomodation.jpg",
+      "price": "35.2",
+      "rating": 5,
+      "text": "What a magnificent view!",
+      "author": "Tinus Lorvaldes",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 1,
+      "campsiteId": 0,
+      "name": "Independent Owned",
+      "image": "/img/suiteImg/independentowned.jpg",
+      "price": "56.2",
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 2,
+      "campsiteId": 0,
+      "name": "Executive Suites",
+      "image": "/img/suiteImg/ExecutiveSuites.jpg",
+      "price": "70.3",
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 3,
+      "campsiteId": 0,
+      "name": "Mickenny Office Space",
+      "image": "/img/suiteImg/MickennyOfficeSpace.jpg",
+      "price": "31.0",
+      "rating": 5,
+      "text": "A wonderful place to reconnect with nature.",
+      "author": "Jordan Runn",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 4,
+      "campsiteId": 0,
+      "name": "Buzy Guy",
+      "image": "/img/suiteImg/buzyguy.jpg",
+      "price": "90.7",
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 5,
+      "campsiteId": 1,
+      "name": "Private Office",
+      "image": "/img/suiteImg/only499suites.jpg",
+      "price": "26.2",
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 6,
+      "campsiteId": 1,
+      "name": "Pool Side Suite",
+      "image": "/img/suiteImg/Poolsidesuite.jpg",
+      "price": "87.08",
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 7,
+      "campsiteId": 1,
+      "name": "Presidential Suite",
+      "image": "/img/suiteImg/PresidentialSuite.jpg",
+      "price": "111.44",
+      "rating": 5,
+      "text": "A wonderful place to reconnect with nature.",
+      "author": "Jordan Runn",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 8,
+      "campsiteId": 1,
+      "name": "Private Office Suites",
+      "image": "/img/suiteImg/PrivateOfficeSuites.jpg",
+      "price": "100.2",
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 9,
+      "campsiteId": 1,
+      "name": "Royal carabean Cruises",
+      "image": "/img/suiteImg/RoyalcarabbeanCruises.jpg",
+      "price": "30.0",
+      "rating": 5,
+      "text": "What a magnificent view!",
+      "author": "Tinus Lorvaldes",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 12,
+      "campsiteId": 2,
+      "name": "Tenerie Spain",
+      "image": "/img/suiteImg/TenerieSpain.jpg",
+      "price": "13.24",
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    }
+  ],
+  "coffees": [
+    {
+      "id": 1,
+      "campsiteId": 0,
+      "name": "Coffee Cappuciono",
+      "image": "/img/coffeeImg/cappuciono.jpg",
+      "price": "13.40",
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 2,
+      "campsiteId": 0,
+      "name": "Coffee House",
+      "image": "/img/coffeeImg/coffeeHouse.jpg",
+      "price": "7.24",
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 3,
+      "campsiteId": 0,
+      "name": "Coffee To Go",
+      "image": "/img/coffeeImg/coffeeToGo.jpg",
+      "price": "3.84",
+      "rating": 5,
+      "text": "A wonderful place to reconnect with nature.",
+      "author": "Jordan Runn",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 4,
+      "campsiteId": 0,
+      "name": "Coffee Froty",
+      "image": "/img/coffeeImg/Frotycoffee.jpg",
+      "price": "10.44",
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 5,
+      "campsiteId": 1,
+      "name": "Coffee Dalgona",
+      "image": "/img/coffeeImg/Dalgonacoffee.jpg",
+      "price": "3.24",
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 6,
+      "campsiteId": 1,
+      "name": "Coffee Morning",
+      "image": "/img/coffeeImg/morningcoffee.jpg",
+      "price": "10.24",
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 7,
+      "campsiteId": 1,
+      "name": "Coffee Panera",
+      "image": "/img/coffeeImg/Paneracoffee.jpg",
+      "price": "8.24",
+      "rating": 5,
+      "text": "A wonderful place to reconnect with nature.",
+      "author": "Jordan Runn",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 8,
+      "campsiteId": 1,
+      "name": "Coffee Fresh Hot",
+      "image": "/img/coffeeImg/freshHotCoffee.jpg",
+      "price": "3.24",
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 9,
+      "campsiteId": 1,
+      "name": "Coffee Microsoft",
+      "image": "/img/coffeeImg/Microsoftcoffee.jpg",
+      "price": "5.24",
+      "rating": 5,
+      "text": "What a magnificent view!",
+      "author": "Tinus Lorvaldes",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 10,
+      "campsiteId": 2,
+      "name": "Coffee Starbucks",
+      "image": "/img/coffeeImg/starbuckscoffee.jpg",
+      "price": "1.24",
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 11,
+      "campsiteId": 2,
+      "name": "Mug Warmer",
+      "image": "/img/coffeeImg/mugWarmer.jpg",
+      "price": "4.24",
+      "rating": 5,
+      "text": "A wonderful place to reconnect with nature.",
+      "author": "Jordan Runn",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 17,
+      "campsiteId": 3,
+      "name": "Coffee Jamaican Blue",
+      "image": "/img/coffeeImg/JamaicaBluecoffee.jpg",
+      "price": "3.24",
+      "rating": 5,
+      "text": "What a magnificent view!",
+      "author": "Tinus Lorvaldes",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 18,
+      "campsiteId": 3,
+      "name": "Coffee Decafe",
+      "image": "/img/coffeeImg/coffeeDecafe.jpg",
+      "price": "3.24",
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    }
+  ],
+  "locations": [
+    {
+      "id": 0,
+      "campsiteId": 0,
+      "place": "ANTHEM COFFEE SPACE ,SEATTLE ,WA",
+      "name": "ANTHEM COFFEE",
+      "image": "/img/locations/anthemcoffee.jpg",
+      "price": 3.24,
+      "rating": 5,
+      "text": "What a magnificent view!",
+      "author": "Tinus Lorvaldes",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 1,
+      "campsiteId": 0,
+      "place": "BROOKLYN COFFEE SPACE ,SEATTLE",
+      "name": "BROOKLYN COFFEE",
+      "image": "/img/locations/brooklyn coffee.jpg",
+      "price": 3.24,
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 2,
+      "campsiteId": 0,
+      "place": "HERKIMER COFFEE SEATTLLE",
+      "name": "HERKIMER COFFEE",
+      "image": "/img/locations/herkimer coffee.jpg",
+      "price": 3.24,
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 4,
+      "campsiteId": 0,
+      "place": "NORFOLK INTERNATIONAL AIRPORT SEATTLLE",
+      "name": "NORFOLK INTERNATIONAL AIRPORT",
+      "image": "/img/locations/norfolk international airport.jpg",
+      "price": 3.24,
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 5,
+      "campsiteId": 1,
+      "place": "SOUTHSIDE JACKSONVILLE BLVD",
+      "name": "SOUTHSIDE JACKSONVILLE BLVD",
+      "image": "/img/locations/southside jacksonville Blvd.jpg",
+      "price": 3.24,
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 6,
+      "campsiteId": 1,
+      "place": "STORYVILLE , SEATTLLE",
+      "name": "STORYVILLE COFFEE",
+      "image": "/img/locations/storyville coffee.jpg",
+      "price": 3.24,
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 7,
+      "campsiteId": 1,
+      "place": "TULLY'S COFFEE SEATTLLE",
+      "name": "TULLI'S COFFEE",
+      "image": "/img/locations/tully's coffee.jpg",
+      "price": 3.24,
+      "rating": 5,
+      "text": "A wonderful place to reconnect with nature.",
+      "author": "Jordan Runn",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 8,
+      "campsiteId": 1,
+      "place": "VELVE COFFEE SEATTLE",
+      "name": "VELVE COFFEE",
+      "image": "/img/locations/velve coffee.jpg",
+      "price": 3.24,
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    }
+  ],
+  "feedback": [],
+  "comments": [
+    {
+      "id": 0,
+      "campsiteId": 0,
+      "rating": 5,
+      "text": "What a magnificent view!",
+      "author": "Tinus Lorvaldes",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 1,
+      "campsiteId": 0,
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 2,
+      "campsiteId": 0,
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 3,
+      "campsiteId": 0,
+      "rating": 5,
+      "text": "A wonderful place to reconnect with nature.",
+      "author": "Jordan Runn",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 4,
+      "campsiteId": 0,
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 5,
+      "campsiteId": 1,
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 6,
+      "campsiteId": 1,
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 7,
+      "campsiteId": 1,
+      "rating": 5,
+      "text": "A wonderful place to reconnect with nature.",
+      "author": "Jordan Runn",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 8,
+      "campsiteId": 1,
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 9,
+      "campsiteId": 1,
+      "rating": 5,
+      "text": "What a magnificent view!",
+      "author": "Tinus Lorvaldes",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 10,
+      "campsiteId": 2,
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 11,
+      "campsiteId": 2,
+      "rating": 5,
+      "text": "A wonderful place to reconnect with nature.",
+      "author": "Jordan Runn",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 12,
+      "campsiteId": 2,
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 13,
+      "campsiteId": 2,
+      "rating": 5,
+      "text": "What a magnificent view!",
+      "author": "Tinus Lorvaldes",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 14,
+      "campsiteId": 2,
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 15,
+      "campsiteId": 3,
+      "rating": 5,
+      "text": "A wonderful place to reconnect with nature.",
+      "author": "Jordan Runn",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 16,
+      "campsiteId": 3,
+      "rating": 4,
+      "text": "The stars at night were a revelation!",
+      "author": "Ann Dabramov",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 17,
+      "campsiteId": 3,
+      "rating": 5,
+      "text": "What a magnificent view!",
+      "author": "Tinus Lorvaldes",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 18,
+      "campsiteId": 3,
+      "rating": 4,
+      "text": "The campground was beautiful, but the bugs could bite sometimes.",
+      "author": "Brennen Ech",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 19,
+      "campsiteId": 3,
+      "rating": 5,
+      "text": "I caught a world-record-breaking trout here on my last visit.",
+      "author": "McKenzie Sebastian",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "campsiteId": 0,
+      "rating": "3",
+      "author": "jhon Steinegher",
+      "text": "I like the coffee wonderfull place .Thank you",
+      "date": "2020-08-20T00:54:11.514Z",
+      "id": 20
+    }
+  ]
+}
