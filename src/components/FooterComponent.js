@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function Footer() {
+
+function Footer(props) {
+ 
     return (
         <>
+     
        <footer className="bottomfooter ">
         <div className="social-media  text-center">
           <a className="text-light btn btn-social-icon btn-instagram" href="http://instagram.com/"><i className="fa fa-instagram"></i></a>{" "}
@@ -22,7 +25,7 @@ function Footer() {
             <li><Link to="/onlinestore">ORDER |</Link></li>
             <li><Link to="/location">LOCATIONS |</Link></li>
             <li><Link to="/about">ABOUT |</Link></li>
-            <li><Link to="/signin">SIGN IN </Link></li>
+            <li><Link to="/">SIGN IN </Link></li>
           </ul>
         </div>
        

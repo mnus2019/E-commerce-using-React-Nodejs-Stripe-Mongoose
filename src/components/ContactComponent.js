@@ -163,6 +163,7 @@ class Contact extends Component {
                   <Col >
                   <Control.textarea
                     model=".feedback"
+                    placeholder="Place  Your Order Here!!"
                     id="feedback"
                     name="feedback"
                     rows="4"

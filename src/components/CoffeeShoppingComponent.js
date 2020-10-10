@@ -14,7 +14,7 @@ function Product({ coffee, cart }) {
           ${coffee.price}
           <div className="text-center">
             <button
-              className="btn  btn-success"
+              className="btn mt-2 btn-success"
               onClick={(e) => cart(coffee, e)}
             >
              + Add Item
@@ -52,11 +52,9 @@ class CoffeeShopping extends Component {
         return (
           eachItem["name"]
             .toLowerCase()
-            .includes(this.props.queryText.toLowerCase()) ||
-          eachItem["price"]
-            .toLowerCase()
-            .includes(this.props.queryText.toLowerCase())
-        );
+            .includes(this.props.queryText.toLowerCase()) 
+       
+         );
       });
 
     const coffeedirectory = filteredCoffee.map((coffee) => {

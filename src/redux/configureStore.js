@@ -6,15 +6,22 @@ import { Coffees } from "./coffee";
 import { Suites } from "./suite";
 import { Locations } from "./locations";
 import { Comments } from './comments';
+
+import { Auth } from './auth';
+import { Messages } from './messages';
 import { InitialFeedback } from './forms';
+
 
 
 export const ConfigureStore = () => {
   const store = createStore(
     combineReducers({
       Locations: Locations,
-      comments: Comments,
+      Comments: Comments,
+      auth: Auth,
+      
       Suites: Suites,
+      Messages: Messages,
       Coffees: Coffees,
       ...createForms({
         feedbackForm: InitialFeedback

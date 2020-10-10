@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Jumbotron } from "reactstrap";
 
-//import { Link } from "react-router-dom";
 
 function RenderClothesItem({ clothe,cart }) {
   return (
@@ -84,7 +83,7 @@ class ClothesShopping extends Component {
     return (
       <>
         <Jumbotron fluid>
-          <h1 className="text-center"> SHOPPING </h1>
+          <h1 className="text-center"> Clothe SHOPPING </h1>
         </Jumbotron>
         <div className="container">
           <div class=" text-center">

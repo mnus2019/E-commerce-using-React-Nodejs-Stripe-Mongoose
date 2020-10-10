@@ -1,8 +1,17 @@
 import React from "react";
 
+
 import { Link } from 'react-router-dom';
 
 
+
+function CartTotal(props){
+  let sum = 0;
+  for(let key in props.cart){
+        sum = sum + (props.cart[key].product.price * props.cart[key].qty);
+  }
+  return sum;
+}
 
 
 function Checkout(props) {
@@ -16,7 +25,7 @@ function Checkout(props) {
     <table className="table table-hover" >
       <caption className="text-right h3">
         <b>  <div className="text-right mr-4 mt-4">
-    <Link className="btn  btn-sm btn-outline-info text-dark" to="/paycheckout">PAY</Link>
+    <Link className="btn  btn-sm btn-outline-info text-dark" to="/paycheckout">PAY:$<CartTotal cart={props.cart}/></Link>
        
        </div> </b>
        
@@ -49,7 +58,7 @@ function Checkout(props) {
     </table>
     <Link className="btn my-2 btn-sm btn-outline-info text-dark" to="/coffeeshopping">Keep Shopping Coffee</Link>
     <Link className="btn my-2 ml-2 btn-sm btn-outline-info text-dark" to="/suiteshopping">Keep Shopping Suites</Link>
-      
+   
   </div>
     
   </>

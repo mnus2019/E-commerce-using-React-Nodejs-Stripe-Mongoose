@@ -46,15 +46,7 @@ class SearchProduct extends Component{
                           href='#' >                      
                       Name
                     </button>
-                    {/* <button
-                      className={
-                        ' dropdown-item ' +
-                        ((this.props.orderBy === 'aptDate') ? 'active' : '')}
-                        onClick={e=>this.props.changeorder('aptDate',this.props.orderBy)}
-                        href='#' >   
-                   
-                      Date
-                    </button> */}
+                  
                     <button
                      className={
                         ' dropdown-item ' +

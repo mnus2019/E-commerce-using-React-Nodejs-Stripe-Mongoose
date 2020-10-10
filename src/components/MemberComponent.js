@@ -3,13 +3,12 @@ import {
   Button,
   Label,
   Col,
-  Row,
-  Modal,
-  ModalHeader,
-  ModalBody,
-} from "reactstrap";
+  Row
 
-import { Control, Actions, Form, Errors } from "react-redux-form";
+} from "reactstrap";
+import { Link } from "react-router-dom";
+
+import { Control,LocalForm, Errors } from "react-redux-form";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -61,7 +60,18 @@ class Member extends Component {
     // console.log('Current state is: ' + JSON.stringify(values));
     // alert('Current state is: ' + JSON.stringify(values));
   
-    this.props.postFeedback(values);
+    this.props.postFeedback(
+      values.firstName,
+      values.lastName,
+      values.phoneNum,
+      values.email,
+      values.joinType,
+      values.agree,
+      values.contactType,
+     
+      values.feedback,
+
+    );
     this.props.resetFeedbackForm();
   }
   render() {
@@ -69,34 +79,34 @@ class Member extends Component {
       <div className="container">
         <div className="row row-content align-items-center">
           <div className="col-12 mt-5">
-            <h1 class="text-center mb-5">WE CAN'T WAIT TO MEET YOU!!!</h1>
+            <h1 class="text-center text-info mb-5">WE CAN'T WAIT TO MEET YOU!!!</h1>
             <p>
               Every membership at COWORKING & COFFEE begins with a tour of the
               space and a conversation with one of our Community Managers.
             </p>
           </div>
           <div className="col">
-            <a role="button" className="btn btn-link" href="tel:+12065551234">
+            <Link role="button" className="btn btn-link" to="tel:+12065551234">
               <i className="fa fa-phone"></i> 1-206-555-1234
-            </a>
+            </Link>
             <br />
-            <a
+            <Link
               role="button"
               className="btn btn-link"
-              href="mailto:fakeemail@fakeemail.co"
+              to="mailto:fakeemail@fakeemail.co"
             >
               <i className="fa fa-envelope-o"></i> campsites@nucamp.co
-            </a>
+            </Link>
           </div>
         </div>
-        <div className="row row-content">
-          <div className="col-12"></div>
-          <div className="col-md-10">
-            <Form
+        <div className="row ml-4 text-center row-content">
+         
+          <div className="col-md-10 bg-light   ">
+            <LocalForm 
               model="feedbackForm"
               onSubmit={(values) => this.handleSubmit(values)}
             >
-              <Row className="form-group">
+              <Row className="form-group mt-3">
               
                 <Col md={10}>
                   <Control.text
@@ -186,6 +196,7 @@ class Member extends Component {
               
                 <Col md={10}>
                   <Control.text
+                  type={String}
                     model=".email"
                     id="email"
                     name="email"
@@ -243,7 +254,7 @@ class Member extends Component {
                 <Label htmlFor="feedback" md={2}>
                   Your Feedback
                 </Label>
-                <Col md={10}>
+                <Col md={8}>
                   <Control.textarea
                     model=".feedback"
                     id="feedback"
@@ -258,11 +269,17 @@ class Member extends Component {
               <Row className="form-group text-center">
                 <Col md={{ size: 4, offset: 2 }}>
                   <Button type="submit" outline color="primary" className="mt-2">
-                    JOIN 
+                  Submit Form
                   </Button>
                 </Col>
               </Row>
-            </Form>
+            </LocalForm>
+
+            {/* <form action="https://localhost:3443/imageUpload" method="post" encType="multipart/form-data">
+              Select a file :
+              <input type="file" name="myImg"/><br></br>
+              <input type="submit" />
+            </form> */}
           </div>
         </div>
       

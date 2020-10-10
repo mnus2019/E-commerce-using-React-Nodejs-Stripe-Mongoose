@@ -26,7 +26,7 @@ function About(props) {
   
   <div class="container mb-4">
     <div class="text-center row-about">
-      <h1 >ABOUT THE COMPANY</h1>
+      <h1 className="text-info" >ABOUT THE COMPANY</h1>
     <p>Lorem ipsum dolor sit amet consectetur,
        adipisicing elit. Odio excepturi labore ut. 
        Reiciendis eaque quod nihil deserunt cumque! Quis natus,
@@ -34,7 +34,7 @@ function About(props) {
         Aperiam, aut?</p>
     </div>
         <div class="row-about text-center">
-          <img src="./img/locations/southside jacksonville Blvd.jpg"
+          <img src="./img/locations/southsidejacksonvilleBlvd.jpg"
            alt="mickennyImage" class="aboutimg img-fluid img-thumbnail"/>
         </div>
   

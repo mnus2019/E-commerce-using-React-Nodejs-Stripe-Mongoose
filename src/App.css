@@ -13,6 +13,7 @@ h2 {
   color: #3046c5;
 }
 
+
 .card-img-overlay h5 {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
@@ -114,6 +115,18 @@ footer .bottomnav li {
 
   padding: 10px;
 }
+.btnFacebook { 
+width: 100%;
+  height:100%;  
+  border-radius: 4px;
+  background: #3b5998;
+  color:white;
+  border:0px transparent;  
+  text-align: center;
+  margin-right:7px;
+  display: inline-block;
+ 
+}
 .bottomnav li a {
   text-decoration: none;
 }
@@ -213,4 +226,48 @@ footer .bottomnav li {
   background-position: bottom;
   background-size: cover;
   z-index: 5;
+}
+
+.login-form{
+  width:100%;
+  max-width:330px;
+  padding: 15px;
+  margin: auto;
+  height: 100%;
+  ;
+}
+
+
+/**
+* Shows how you can use CSS to style your Element's container.
+* These classes are added to your Stripe Element by default.
+* You can override these classNames by using the options passed
+* to the CardElement component.
+* https://stripe.com/docs/js/elements_object/create_element?type=card#elements_create-options-classes
+*/
+
+.StripeElement {
+  height: 40px;
+  padding: 10px 12px;
+  width: 100%;
+  color: #32325d;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
 }

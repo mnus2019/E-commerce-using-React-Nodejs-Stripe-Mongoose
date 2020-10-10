@@ -1,20 +1,26 @@
 import React, { Component } from "react";
-//import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
+import {  CardImg, CardImgOverlay, CardTitle,
+ } from 'reactstrap';
 
 import { Link } from "react-router-dom";
 import Contact from "./ContactComponent";
-import { Media } from "reactstrap";
 import { Loading } from "./LoadingComponent";
 
 function RenderDirectoryItem({ suites }) {
   return (
-    <Link to={`/directory/${suites.id}`}>
-      <div className="container ">
-        <div className="grid">
-          <img width="100%" src={suites.image} alt={suites.name} />
-        </div>
-      </div>
+    <div>
+       <Link to={`/location/${suites._id}`} className="grid">
+   
+   <CardImg width="100%" src={suites.image} alt={suites.name} />
+        <CardImgOverlay>
+          <CardTitle className="text-light">{suites.name}</CardTitle>
+        </CardImgOverlay>
+   
+   
+        
+      
     </Link>
+    </div>
   );
 }
 
@@ -22,12 +28,13 @@ function PartnerList(props) {
   console.log(props.suites);
 
   const directory = props.suites.suites
-    .filter((suite) => suite.campsiteId < 2)
+    .filter((suite) => suite._id )
     .map((suites) => {
       return (
-        <div key={suites.id} className="col m-1">
-          <RenderDirectoryItem suites={suites} />
-        </div>
+        <div key={suites._id} className="col-md-3 m-1" >       
+         <RenderDirectoryItem suites={suites} />         
+         </div>
+        
       );
     });
 
@@ -39,8 +46,9 @@ function PartnerList(props) {
   }
 
   return (
-    <div className="col-md-4 m-1">
-      <div >{directory}</div>
+    <div className="container">
+   
+      <div className="row">{directory}</div>
     </div>
   );
 }
@@ -74,8 +82,7 @@ class Home extends Component {
                 <Link
                   to="/member"
                   className="mt-5  col-sm-6 text-dark btn btn-outline-danger btn-lg"
-                  href="member.html"
-                  role="button"
+                      role="button"
                 >
                   <span>JOIN MEMBER &raquo;</span>
                 </Link>
@@ -88,7 +95,7 @@ class Home extends Component {
         <div className="container">
           <div className="row ">
             <div className="col-md-4">
-              <h2>CONFERENCE ROOMS</h2>
+              <h2 className="text-info">CONFERENCE ROOMS</h2>
               <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
                 tellus ac cursus commodo, tortor mauris condimentum nibh, ut
@@ -102,7 +109,7 @@ class Home extends Component {
               </p>
             </div>
             <div className="col-md-4">
-              <h2>BREAKOUT BOOTHS</h2>
+              <h2 className="text-info">BREAKOUT BOOTHS</h2>
               <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
                 tellus ac cursus commodo, tortor mauris condimentum nibh, ut
@@ -116,7 +123,7 @@ class Home extends Component {
               </p>
             </div>
             <div className="col-md-4">
-              <h2>RELAXED WORKPLACE</h2>
+              <h2 className="text-info">RELAXED WORKPLACE</h2>
               <p>
                 Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
                 egestas eget quam. Vestibulum id ligula porta felis euismod
@@ -170,16 +177,20 @@ class Home extends Component {
             </h1>
           </div>
         </div>
+       
 
         <Contact />
 
         <div className="container">
           <div className=" text-center">
             {" "}
-            <h1 className="my-5">OUR FLEXIBLE SUITES</h1>
-          </div>
-          <PartnerList suites={this.props.suites} />
+            <h1 className="my-5 text-info">OUR FLEXIBLE SUITES</h1>
+          </div>       
+       
+     <PartnerList suites={this.props.suites} />       
+          
         </div>
+      
       </>
     );
   }

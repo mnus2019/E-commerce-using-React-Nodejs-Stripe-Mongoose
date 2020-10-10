@@ -10,7 +10,9 @@ import SignIn from "./SigninComponent";
 import Checkout from "./CheckoutComponent";
 import OnlineStore from "./OnlineStoreComponent";
 import { actions } from "react-redux-form";
-
+import Register from "./RegisterComponent";
+import Message from "./messageComponent";
+import Filenotfound from "./FileNotFoundComponent"
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import SuiteShopping from "./SuiteShoppingComponent";
@@ -26,7 +28,12 @@ import {
   fetchSuites,
   fetchLocations,
   postFeedback,
-  fetchComments
+  fetchComments,
+  loginUser,
+  logoutUser,
+  postRegister,
+  getMessage,
+  fetchFacebook
 } from "../redux/ActionCreators";
 
 const mapStateToProps = (state) => {
@@ -34,19 +41,31 @@ const mapStateToProps = (state) => {
     suites: state.Suites,
     coffees: state.Coffees,
     locations: state.Locations,
-    comments: state.comments,
+    comments: state.Comments,
+    messages: state.Messages,
+    auth: state.auth,
+   
+
+    
   };
 };
 
 const mapDispatchToProps = {
   fetchCoffees: () => fetchCoffees(),
-  postComment: (campsiteId, rating, author, text) =>
-    postComment(campsiteId, rating, author, text),
+  postComment: ( rating, author, text) =>
+    postComment( rating, author, text),
   fetchSuites: () => fetchSuites(),
-  postFeedback: (feedback) => postFeedback(feedback),
+  postFeedback: (firstName,lastName,phoneNum,email,joinType,agree,contactType,feedback) => 
+  postFeedback(firstName,lastName,phoneNum,email,joinType,agree,contactType,feedback),
   resetFeedbackForm: () => actions.reset("feedbackForm"),
   fetchLocations: () => fetchLocations(),
-  fetchComments: () => fetchComments()
+  fetchComments: () => fetchComments(),
+  loginUser: creds => (loginUser(creds)),
+  postRegister: ( password,username,firstName,lastName) =>
+  postRegister( password,username,firstName,lastName),
+  getMessage: ( ) => getMessage( ),
+  fetchFacebook:(response) => fetchFacebook(response),
+  logoutUser: () => (logoutUser())
 };
 
 class Main extends Component {
@@ -87,10 +106,10 @@ class Main extends Component {
 
   AddCart = (item, e) => {
     e.preventDefault();
-    var existing = this.state.cart.filter((p) => p.product.id === item.id);
+    var existing = this.state.cart.filter((p) => (p.product.id ||p.product._id)=== (item.id ||item._id));
     if (existing.length) {
       const withoutExisting = this.state.cart.filter(
-        (p) => p.product.id !== item.id
+        (p) => (p.product.id || p.product._id) !== (item.id || item._id)
       );
       const updatedproduct = { ...existing[0], qty: existing[0].qty + 1 };
       this.setState({
@@ -127,14 +146,14 @@ class Main extends Component {
       return (
         <CampsiteInfo
           suites={
-            this.props.suites.suites.filter(
-              (suite) => suite.id === +match.params.campsiteId
+            this.props.locations.locations.filter(
+              (location) => location._id === +match.params.campsiteId
             )[0]
           }
-          isLoading={this.props.suites.isLoading}
-          errMess={this.props.suites.errMess}
+          isLoading={this.props.locations.isLoading}
+          errMess={this.props.locations.errMess}
           comments={this.props.comments.comments.filter(
-            (comment) => comment.campsiteId === +match.params.campsiteId
+            (comment) => comment.campsiteId === 0
           )}
           commentsErrMess={this.props.comments.errMess}
           postComment={this.props.postComment}
@@ -148,7 +167,11 @@ class Main extends Component {
           deleteItem={this.deleteItem}
           addItem={this.addItem}
           cartQty={this.cartQty}
+          auth={this.props.auth} 
+          logoutUser={this.props.logoutUser}
+         
         />
+       
         <TransitionGroup>
           <CSSTransition
             key={this.props.locations.locations.id}
@@ -156,7 +179,29 @@ class Main extends Component {
             timeout={300}
           >
             <Switch>
-              <Route path="/home">
+            <Route exact path="/">
+                <SignIn
+              loginUser={this.props.loginUser} 
+               fetchFacebook={this.props.fetchFacebook}
+                />
+              </Route>
+               
+           
+
+              <Route path="/message">
+                <Message
+                 getMessage={this.props.getMessage}
+                 messages={this.props.messages}
+                />
+              </Route>
+            
+
+              <Route path="/register">
+                <Register
+               postSignIn={this.props.postRegister}
+                />
+              </Route>
+              <Route exact path="/home">
                 <Home exact suites={this.props.suites} />
               </Route>
               <Route exact path="/member">
@@ -167,7 +212,7 @@ class Main extends Component {
               </Route>
               <Route exact path="/about" component={About} />
               <Route exact path="/blog" component={Blog} />
-              <Route exact path="/signin" component={SignIn} />
+             
               <Route exact path="/location">
                 <Location locations={this.props.locations} />{" "}
               </Route>
@@ -208,14 +253,21 @@ class Main extends Component {
                 <ClothesShopping AddCart={this.AddCart} />
               </Route>
               <Route path="/paycheckout">
-                <PayCheckout />
+                <PayCheckout
+                  cart={this.state.cart} />
               </Route>
+            
+              <Route path="/filenotfound">
+                <Filenotfound />
+              </Route>
+            
 
-              <Redirect to="/home" />
+              <Redirect exact to="/filenotfound" />
             </Switch>
           </CSSTransition>
         </TransitionGroup>
-        <Footer />
+        <Footer   getMessage={this.props.getMessage}
+                 messages={this.props.messages}/>
       </div>
     );
   }

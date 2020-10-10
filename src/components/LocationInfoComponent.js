@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Loading } from "./LoadingComponent";
-//import { FadeTransform, Fade, Stagger } from "react-animation-components";
-import { baseUrl } from "../shared/baseUrl";
 import {
   Card,
   CardImg,
@@ -25,16 +23,16 @@ function RenderCampsite({ suites }) {
       <div className="col-md-5 m-1">
      
           <Card>
-            <CardImg top src={baseUrl + suites.image} alt={suites.name} />
+            <CardImg top src={suites.image} alt={suites.name} />
             <CardBody>
-              <CardText>{suites.description}</CardText>
+              <CardText>{suites.text}</CardText>
             </CardBody>
           </Card>
        
       </div>
     );
   }
-  return <div>there is no photo</div>;
+  return <div></div>;
 }
 function RenderComments({ comments, postComment, campsiteId }) {
   if (comments) {
@@ -45,16 +43,12 @@ function RenderComments({ comments, postComment, campsiteId }) {
           {comments.map((comment) => {
             return (
             
-                <div key={comment.id}> 
+                <div key={comment._id}> 
                   <p>
                     {comment.text}
                     <br />
-                    -- {comment.author},{" "}
-                    {new Intl.DateTimeFormat("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "2-digit",
-                    }).format(new Date(Date.parse(comment.date)))}
+                    -- {comment.author},{" "} {comment.timestamps}
+                 
                   </p>
                 </div>
               
@@ -108,7 +102,7 @@ function CampsiteInfo(props) {
           <RenderComments
             comments={props.comments}
             postComment={props.postComment}
-            campsiteId={props.suites.id}
+            campsiteId={props.suites._id}
           />
         </div>
       </div>
@@ -136,7 +130,7 @@ class CommentForm extends Component {
   handleSubmit(values) {
     this.toggleModal();
     this.props.postComment(
-      this.props.campsiteId,
+      // this.props.campsiteId,
       values.select,
       values.author,
       values.comment

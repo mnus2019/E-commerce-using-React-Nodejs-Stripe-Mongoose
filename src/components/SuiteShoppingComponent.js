@@ -16,7 +16,7 @@ function Product({ suite, cart }) {
       <CardBody>
         <CardTitle>{suite.name}</CardTitle>${suite.price}
         <div className="text-center">
-          <button className="btn  btn-success" onClick={(e) => cart(suite, e)}>
+          <button className="btn mt-2 btn-success" onClick={(e) => cart(suite, e)}>
             + Add to Cart
           </button>
         </div>
@@ -49,10 +49,7 @@ class SuiteShopping extends Component {
         return (
           eachItem["name"]
             .toLowerCase()
-            .includes(this.props.queryText.toLowerCase()) ||
-          eachItem["price"]
-            .toLowerCase()
-            .includes(this.props.queryText.toLowerCase())
+            .includes(this.props.queryText.toLowerCase()) 
         );
       });
 
