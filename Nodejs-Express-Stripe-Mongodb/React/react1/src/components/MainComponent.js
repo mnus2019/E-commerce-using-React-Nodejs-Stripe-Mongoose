@@ -190,8 +190,8 @@ class Main extends Component {
 
               <Route path="/message">
                 <Message
-                 getMessage={this.props.getMessage}
-                 messages={this.props.messages}
+                //  getMessage={this.props.getMessage}
+                //  messages={this.props.messages}
                 />
               </Route>
             

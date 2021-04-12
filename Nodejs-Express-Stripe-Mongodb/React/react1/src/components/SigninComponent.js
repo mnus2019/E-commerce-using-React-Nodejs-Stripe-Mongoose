@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from 'react-router-dom' 
 import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
 
 
 import {
@@ -38,6 +39,13 @@ class SignIn extends Component {
    responseFacebook = (response) => {
     console.log(response);
     this.props.fetchFacebook(response);
+    this.props.history.push("/home");
+  
+  }
+
+  responseGoogle = (response) => {
+    console.log(response);
+    this.props.fetchGoogle(response);
     this.props.history.push("/home");
   
   }
@@ -154,6 +162,17 @@ class SignIn extends Component {
     callback={this.responseFacebook} />
      </Col>
               </Row>
+         <Row className="form-group text-center">
+           <Col>
+           <GoogleLogin
+    clientId="634211974166-7vbh0m20asfh1pk4jehrer361ukq0vnc.apps.googleusercontent.com"
+    autoLoad={false}  
+    // cssClass="btnFacebook" 
+    callback={this.responseGoogle}
+   
+  />
+           </Col>
+         </Row>
              
            
              

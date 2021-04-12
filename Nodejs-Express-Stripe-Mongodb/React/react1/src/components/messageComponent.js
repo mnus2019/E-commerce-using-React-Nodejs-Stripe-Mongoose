@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import {
   Button,
- 
   Col,
   Row
 
 } from "reactstrap";
 
 import { Control, Form, Errors } from "react-redux-form";
+import io from "socket.io-client";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
 const minLength = (len) => (val) => val && val.length >= len;
+
+let socket;
+
+const ENDPOINT = 'localhost:3000';
 
 
 class Message extends Component {
@@ -19,7 +23,8 @@ class Message extends Component {
     super(props);
     this.state = {
       user: "",
-     
+      room:"",      
+      messages:[],     
       text: "",
       isModalOpen: false,
       touched: {
@@ -33,53 +38,53 @@ class Message extends Component {
 
     this.resetForm = this.resetForm.bind(this);
     // this.getMessages = this.getMessages.bind(this);
-    this.postMessages = this.postMessages.bind(this);
+    // this.postMessages = this.postMessages.bind(this);
   }
 
 
 
  
 
-   postMessages=(text,user)=>{
-    const newMessage = {
+  //  postMessages=(text,user)=>{
+  //   const newMessage = {
  
    
    
-      user,
-      text,
-    };
+  //     user,
+  //     text,
+  //   };
   
-    return fetch( "newmessage", {
-      method: "POST",
-      body: JSON.stringify(newMessage),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(
-        (response) => {
-          if (response.ok) {
-            return response;
-          } else {
-            const error = new Error(
-              `Error ${response.status}: ${response.statusText}`
-            );
-            error.response = response;
-            throw error;
-          }
-        },
-        (error) => {
-          throw error;
-        }
-      )
-      .then((response) => response.json())
-      .then((response) =>  alert("Thank you for your feedback" + JSON.stringify(response))
-      )
-      .catch((error) => {
-        console.log("post Message", error.message);
-        alert("Your message Info could not be posted\nError: " + error.message);
-      });
-}
+    // return fetch( "newmessage", {
+    //   method: "POST",
+    //   body: JSON.stringify(newMessage),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    //   .then(
+    //     (response) => {
+    //       if (response.ok) {
+    //         return response;
+    //       } else {
+    //         const error = new Error(
+    //           `Error ${response.status}: ${response.statusText}`
+    //         );
+    //         error.response = response;
+    //         throw error;
+    //       }
+    //     },
+    //     (error) => {
+    //       throw error;
+    //     }
+    //   )
+    //   .then((response) => response.json())
+    //   .then((response) =>  alert("Thank you for your feedback" + JSON.stringify(response))
+    //   )
+    //   .catch((error) => {
+    //     console.log("post Message", error.message);
+    //     alert("Your message Info could not be posted\nError: " + error.message);
+    //   });
+//}
 // getMessages = () => {
 //    return fetch("message").then((response) => {
 //         return response.json();
@@ -100,6 +105,29 @@ class Message extends Component {
 //              })
 //   };
 
+
+// useEffect(() => {
+//   const {name, room} = queryString.parse(location.search);
+ 
+//   console.log(location.search)
+ 
+//   socket = io(ENDPOINT)
+
+
+ 
+//   setName(name);
+//   setRoom(room);
+//   socket.emit('join',{name,room},()=>{
+    
+//   });
+//   return()=>{
+//     socket.emit('disconnect');
+//     socket.off();
+//   }
+
+    
+// },[ENDPOINT]);
+
   resetForm() {
     this.setState({
       user: "",
@@ -114,17 +142,32 @@ class Message extends Component {
   handleSubmit(values) {
     // console.log('Current state is: ' + JSON.stringify(values));
     // alert('Current state is: ' + JSON.stringify(values));
-    this.props.getMessage();
-    this.postMessages(
-    
-       
-      
-      values.user,
-      values.text
+    // this.props.getMessage();
+    // this.postMessages(
+    //   values.user,
+    //   values.text
+    // );
+    // const whitelist = ["https://localhost:3443"];
+    // const user = values.user;
+    // const room = values.text;
+    // const text = values.text;
+    socket = io(ENDPOINT)
 
-    );
+socket.on('connection', function(socket) {
+  console.log('new connection');
+ socket.emit('message', 'This is a message from the dark side.');
+});
+// socket.on('message', function(data) {
+//   alert(data);
+// });
+  //console.log(user)
+
+  // if(text) {
+  //   socket.emit('sendMessage', text, () => this.setState({text:""}));
+  // }
+ 
     
-  }
+    }
   render() {
     return (
       <div className="container">
@@ -170,6 +213,35 @@ class Message extends Component {
                   />
                 </Col>
               </Row>
+
+              <Row className="form-group">
+              
+              <Col md={10}>
+                <Control.text
+                  model=".room"
+                  id="room"
+                  name="room"
+                  placeholder="Room"
+                  className="form-control"
+                  validators={{
+                    required,
+                    minLength: minLength(2),
+                    maxLength: maxLength(15),
+                  }}
+                />
+                <Errors
+                  className="text-danger"
+                  model=".room"
+                  show="touched"
+                  component="div"
+                  messages={{
+                    required: "Required",
+                    minLength: "Must be at least 2 characters",
+                    maxLength: "Must be 15 characters or less",
+                  }}
+                />
+              </Col>
+            </Row>
              
               <Row className="form-group">
                
@@ -197,7 +269,7 @@ class Message extends Component {
         </div>
         <div>
           
-        {this.props.messages.messages.map((item, index) => {return (
+        {/* {this.state.messages.map((item, index) => {return (
                           <div >
                             <div className=" text-nowrap text-right">
                             <span className="badge badge-pill badge-warning align-text-top mr-1">
@@ -209,7 +281,7 @@ class Message extends Component {
                             </div>
                           </div>
                         );
-                      })}
+                      })} */}
         </div>
       
       </div>
