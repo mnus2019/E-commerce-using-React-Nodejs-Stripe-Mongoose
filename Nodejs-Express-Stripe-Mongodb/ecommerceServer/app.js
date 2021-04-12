@@ -19,6 +19,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const config = require("./config");
 
+
 const url = config.mongoUrl;
 const connect = mongoose.connect(url, {
   useCreateIndex: true,
@@ -41,6 +42,9 @@ app.use(passport.initialize());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+
+
+
 
 // Secure traffic only
 app.all("*", (req, res, next) => {

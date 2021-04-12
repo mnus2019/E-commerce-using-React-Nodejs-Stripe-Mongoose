@@ -9,8 +9,16 @@ var debug = require('debug')('nucampsiteserver:server');
 var http = require('http');
 
 
+
+
+
+
+
+//const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
+
 const https = require('https');
 const fs = require('fs');
+
 
 /**
  * Get port from environment and store in Express.
@@ -26,9 +34,12 @@ app.set('secPort', port+443);
 
 var server = http.createServer(app);
 
+
 /**
  * Listen on provided port, on all network interfaces.
  */
+//const whitelist = ["http://localhost:3001","https://localhost:3443"];
+
 
 server.listen(port);
 server.on('error', onError);
@@ -44,14 +55,22 @@ const options = {
   cert: fs.readFileSync(__dirname+'/server.cert')
 };
 
-const secureServer = https.createServer(options, app);
-const io = socketio(secureServer);
-io.on('connection', socket => { 
-  console.log('welcome to our connection');
-  socket.on("disconnected",socket=>{
-    console.log('user has left the connection');
-  })
- });
+var secureServer = https.createServer(options,app);
+
+
+
+var io = require('socket.io').listen(secureServer,{pingTimeout: 7000, pingInterval: 10000});
+io.set("transports", ["xhr-polling","websocket","polling", "htmlfile"]);
+io.on('connection', function(socket) {
+  console.log("new connection");
+  socket.emit('message', 'This is a message from the dark side.');
+});
+
+
+
+
+
+
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -63,9 +82,13 @@ secureServer.listen(app.get('secPort'), () => {
 secureServer.on('error', onError);
 secureServer.on('listening', onListening);
 
+
+
+
 /**
  * Normalize a port into a number, string, or false.
  */
+
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
