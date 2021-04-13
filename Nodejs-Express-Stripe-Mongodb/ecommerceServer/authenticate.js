@@ -57,7 +57,7 @@ exports.verifyAdmin = function (req, res, next) {
             clientSecret: config.facebook.clientSecret
         }, 
         (accessToken, refreshToken, profile, done) => {
-            User.findOne({facebookId: profile.id}, (err, user) => {
+            User.findOne({googleId: profile.id}, (err, user) => {
                 if (err) {
                     return done(err, false);
                 }
@@ -65,7 +65,40 @@ exports.verifyAdmin = function (req, res, next) {
                     return done(null, user);
                 } else {
                     user = new User({ username: profile.displayName });
-                    user.facebookId = profile.id;
+                    user.googleId = profile.id;
+                    user.firstname = profile.name.givenName;
+                    user.lastname = profile.name.familyName;
+                    user.save((err, user) => {
+                        if (err) {
+                            return done(err, false);
+                        } else {
+                            return done(null, user);
+                        }
+                    });
+                }
+            });
+        }
+    )
+  );
+
+
+
+  exports.googlePassport = passport.use(
+    new FacebookTokenStrategy(
+        {
+            clientID: config.google.clientId,
+            clientSecret: config.google.clientSecret
+        }, 
+        (accessToken, refreshToken, profile, done) => {
+            User.findOne({googleId: profile.id}, (err, user) => {
+                if (err) {
+                    return done(err, false);
+                }
+                if (!err && user) {
+                    return done(null, user);
+                } else {
+                    user = new User({ username: profile.displayName });
+                    user.googleId = profile.id;
                     user.firstname = profile.name.givenName;
                     user.lastname = profile.name.familyName;
                     user.save((err, user) => {
