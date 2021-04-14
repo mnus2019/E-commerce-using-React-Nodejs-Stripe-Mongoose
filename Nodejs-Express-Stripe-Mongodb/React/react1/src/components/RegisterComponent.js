@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router-dom' 
+import { Link, withRouter } from 'react-router-dom'
 import {
 
   
@@ -182,7 +182,12 @@ class Register extends Component {
           <input type="checkbox" value="remember-me"/> Remember me
         </label>
       </div >
-      <button className="btn  btn-primary btn-block " type="submit">Register</button>
+      <button className="btn mb-4  btn-primary btn-block " type="submit">Register</button>
+      <Link className="text-white" id="underlineLink" to="/" >
+                 
+                   Already Have An Account
+                
+                  </Link>
       <p className="mt-5 mb-3 text-muted text-center">&copy; 2020-2021</p>
               
             </LocalForm>

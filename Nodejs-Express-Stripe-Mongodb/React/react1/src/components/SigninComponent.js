@@ -144,8 +144,8 @@ class SignIn extends Component {
                   <Button type="submit" outline color="primary" className="my-2 btn btn-lg btn-block">
                     SignIn
                   </Button>
-                  <Link to="/register" >
-                  <Button  outline color="primary" className="my-2 btn btn-lg btn-block">
+                  <Link id="underlineLink" to="/register" >
+                  <Button  outline color="primary" className="my-2  btn btn-lg btn-block">
                     Register
                   </Button>
                   </Link>

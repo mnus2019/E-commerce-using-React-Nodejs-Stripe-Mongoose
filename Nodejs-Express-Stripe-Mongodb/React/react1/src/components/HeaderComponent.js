@@ -165,7 +165,7 @@ class Header extends Component {
             <Link to="/home">
             <img
                 className="logo"
-                src="img/logo/logo.jpg"
+                src="img/logo/eclogo.jpg"
                 height="30"
                 width="30"
                 alt="E-Shopey"

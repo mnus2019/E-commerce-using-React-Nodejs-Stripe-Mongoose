@@ -64,7 +64,7 @@ h2 {
 } */
 .logo {
   border-radius: 13px;
-  background-color: #37dd50;
+  background-color: #065b13;
 }
 /* .bottomnav {
   display: flex;
@@ -219,6 +219,7 @@ width: 100%;
   height: 250px;
 }
 .about{
+ 
   background-image: url("/img/suiteImg/CoworkingVsExecutiveSuites.jpg");
   padding-top: 20px;
   background-repeat: no-repeat;
@@ -228,13 +229,26 @@ width: 100%;
   z-index: 5;
 }
 
+#underlineLink{
+  text-decoration: none;
+  list-style: none;
+ 
+}
+
 .login-form{
+ 
+  background-image: url("/img/signInImg/ecommerce.jpg");
+  padding-top: 20px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   width:100%;
   max-width:330px;
   padding: 15px;
   margin: auto;
   height: 100%;
-  ;
+  box-sizing: border-box;
+  backface-visibility: hidden;
 }
 
 
