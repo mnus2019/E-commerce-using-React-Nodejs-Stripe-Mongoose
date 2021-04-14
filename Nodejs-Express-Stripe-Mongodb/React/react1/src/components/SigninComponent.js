@@ -158,7 +158,7 @@ class SignIn extends Component {
             <FacebookLogin
     appId="1020955051650156"
     autoLoad={false}  
-    // cssClass="btnFacebook" 
+    //cssClass="btnFacebook" 
     callback={this.responseFacebook} />
      </Col>
               </Row>
@@ -167,7 +167,7 @@ class SignIn extends Component {
            <GoogleLogin
     clientId="634211974166-7vbh0m20asfh1pk4jehrer361ukq0vnc.apps.googleusercontent.com"
     autoLoad={false}  
-    // cssClass="btnFacebook" 
+    //cssClass="btnFacebook" 
     onSuccess={this.responseGoogle}
    
   />
