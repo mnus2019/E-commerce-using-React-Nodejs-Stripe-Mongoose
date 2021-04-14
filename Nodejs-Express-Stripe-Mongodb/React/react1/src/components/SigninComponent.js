@@ -45,7 +45,7 @@ class SignIn extends Component {
 
   responseGoogle = (response) => {
     console.log(response);
-   // this.props.fetchGoogle(response);
+    this.props.fetchGoogle(response);
     this.props.history.push("/home");
   
   }

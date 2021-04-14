@@ -33,7 +33,8 @@ import {
   logoutUser,
   postRegister,
   getMessage,
-  fetchFacebook
+  fetchFacebook,
+  fetchGoogle
 } from "../redux/ActionCreators";
 
 const mapStateToProps = (state) => {
@@ -65,6 +66,7 @@ const mapDispatchToProps = {
   postRegister( password,username,firstName,lastName),
   getMessage: ( ) => getMessage( ),
   fetchFacebook:(response) => fetchFacebook(response),
+  fetchGoogle:(response) => fetchGoogle(response),
   logoutUser: () => (logoutUser())
 };
 
@@ -183,6 +185,7 @@ class Main extends Component {
                 <SignIn
               loginUser={this.props.loginUser} 
                fetchFacebook={this.props.fetchFacebook}
+               fetchGoogle={this.props.fetchGoogle}
                 />
               </Route>
                

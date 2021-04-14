@@ -127,6 +127,49 @@ export const fetchFacebook= (creds) => (dispatch) => {
 };
 
 
+export const fetchGoogle= (creds) => (dispatch) => {
+ 
+  // We dispatch requestLogin to kickoff the call to the API
+  dispatch(requestLogin(creds))
+
+ return fetch(`users/google/token?access_token=${creds.accessToken}`)
+ 
+   .then(
+     (response) => {
+       if (response.ok) {
+         return response;
+       } else {
+         const error = new Error(
+           `Error ${response.status}: ${response.statusText}`
+         );
+         error.response = response;
+         throw error;
+       }
+     },
+     (error) => {
+       const errMess = new Error(error.message);
+       throw errMess;
+     }
+   )
+   .then((response) => response.json())
+   .then(response => {
+     if (response.success) {
+         // If login was successful, set the token in local storage
+         localStorage.setItem('token', response.token);
+         localStorage.setItem('creds', JSON.stringify(creds));
+         // Dispatch the success action
+         // dispatch(fetchFavorites());
+         dispatch(receiveLogin(response));
+     } else {
+         const error = new Error('Error ' + response.status);
+         error.response = response;
+         throw error;
+     }
+ })
+ .catch(error => dispatch(loginError(error.message)))
+};
+
+
 export const fetchLocations = () => (dispatch) => {
   dispatch(locationsLoading());
 
