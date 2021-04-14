@@ -12,6 +12,7 @@ const userSchema = new Schema({
         default: ''
     },
     facebookId: String,
+    googleId: String,
     admin: {
         type: Boolean,
         default: false

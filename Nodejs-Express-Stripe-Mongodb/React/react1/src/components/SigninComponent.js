@@ -45,7 +45,7 @@ class SignIn extends Component {
 
   responseGoogle = (response) => {
     console.log(response);
-    this.props.fetchGoogle(response);
+   // this.props.fetchGoogle(response);
     this.props.history.push("/home");
   
   }
@@ -168,7 +168,7 @@ class SignIn extends Component {
     clientId="634211974166-7vbh0m20asfh1pk4jehrer361ukq0vnc.apps.googleusercontent.com"
     autoLoad={false}  
     // cssClass="btnFacebook" 
-    callback={this.responseGoogle}
+    onSuccess={this.responseGoogle}
    
   />
            </Col>

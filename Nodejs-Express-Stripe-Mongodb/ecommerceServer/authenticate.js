@@ -5,6 +5,7 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 const FacebookTokenStrategy = require('passport-facebook-token');
+const GoogleTokenStrategy = require('passport-google-token').Strategy;
 const config = require("./config.js");
 
 exports.local = passport.use(new LocalStrategy(User.authenticate()));
@@ -57,7 +58,7 @@ exports.verifyAdmin = function (req, res, next) {
             clientSecret: config.facebook.clientSecret
         }, 
         (accessToken, refreshToken, profile, done) => {
-            User.findOne({googleId: profile.id}, (err, user) => {
+            User.findOne({facebookId: profile.id}, (err, user) => {
                 if (err) {
                     return done(err, false);
                 }
@@ -65,7 +66,7 @@ exports.verifyAdmin = function (req, res, next) {
                     return done(null, user);
                 } else {
                     user = new User({ username: profile.displayName });
-                    user.googleId = profile.id;
+                    user.facebookId = profile.id;
                     user.firstname = profile.name.givenName;
                     user.lastname = profile.name.familyName;
                     user.save((err, user) => {
@@ -79,12 +80,12 @@ exports.verifyAdmin = function (req, res, next) {
             });
         }
     )
-  );
+);
 
 
 
   exports.googlePassport = passport.use(
-    new FacebookTokenStrategy(
+    new GoogleTokenStrategy(
         {
             clientID: config.google.clientId,
             clientSecret: config.google.clientSecret

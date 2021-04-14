@@ -66,6 +66,15 @@ router.get('/facebook/token',cors.corsWithOptions,passport.authenticate('faceboo
     }
 });
 
+router.get('/google/token',cors.corsWithOptions,passport.authenticate('google-token'), (req, res) => {
+    if (req.user) {
+        const token = authenticate.getToken({_id: req.user._id});
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json({success: true, token: token, status: 'You are successfully logged in!'});
+    }
+});
+
 router.get('/logout',cors.corsWithOptions, (req, res, next) => {
     if (req.session) {
       req.session.destroy();
