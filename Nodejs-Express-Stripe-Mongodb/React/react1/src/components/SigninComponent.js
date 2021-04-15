@@ -70,11 +70,42 @@ class SignIn extends Component {
   render() {
     
     return (
-      <div className="container">
+
+      <div className="row backgroundRegister">
+
+
+<div className="jumbotron mt-5 ml-5 col firstPageHeader ">
+          <div className="container">
+            <div className="text-center ">
+              <h1 className="text-info ">
+                <strong>E-commerce</strong>
+              </h1>
+              <h2 className="text-info">ShopAnyThing</h2>
+              <p className=" p-4 mb-5">
+                <strong>ShopAnyThing </strong>
+               With the Mental satisfaction of 2-3 day shipping
+                and free returns on most items and most market places,consumers will expect 
+                the same from all other Ecommerce website.
+              </p>
+              <p className=" p-4 mb-5">
+                <strong>ShopAnyThing </strong>
+                is Link shared office space designed to foster great work and
+                build community. Ideal for solo workers, growing your business,
+                or starting a new one.
+              </p>
+              <p>
+              ACCEPT PAYMENTS FROM ANY DEVICE FROM ANY COUNTRY RESISTER NOW
+              OR SIGNIN IF YOU HAVE ONE!!!!
+              </p>
+            </div>
+          </div>
+        </div>
+
+      <div className=" container col">
        
       
         
-        <div className="row  mt-5 row-content">
+        <div className="row  mt-2 row-content">
      
           <div className="text-center  col-10">
           
@@ -159,22 +190,23 @@ class SignIn extends Component {
     appId="1020955051650156"
     autoLoad={false}  
     //cssClass="btnFacebook" 
-    callback={this.responseFacebook} />
+    callback={this.responseFacebook}
+    icon={<i className="fa fa-facebook" >
+    </i>}
+    textButton = "&nbsp;Sign In with Facebook" 
+     />
      </Col>
               </Row>
-         <Row className="form-group text-center">
+         <Row className="form-group  text-center">
            <Col>
            <GoogleLogin
     clientId="634211974166-7vbh0m20asfh1pk4jehrer361ukq0vnc.apps.googleusercontent.com"
-    autoLoad={false}  
-    //cssClass="btnFacebook" 
+    autoLoad={false} 
     onSuccess={this.responseGoogle}
-   
+  
   />
            </Col>
-         </Row>
-             
-           
+         </Row> 
              
         
       <p className="mt-5 mb-3 text-muted text-center">&copy; 2020-2021</p>
@@ -182,6 +214,7 @@ class SignIn extends Component {
             </LocalForm>
           </div>
         </div>
+      </div>
       </div>
     );
   }

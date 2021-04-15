@@ -41,6 +41,27 @@ h2 {
   background-position: left bottom;
   background-size: cover;
   height: 100%;
+  opacity: 76;
+  z-index: 3;
+}
+.backgroundRegister{
+  background-image: url("/img/suiteImg/ebackgroundpage.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right center;
+  background-size: cover;
+  height: 100%;
+  z-index: 3;
+
+}
+
+.firstPageHeader {
+  background-image: url("/img/suiteImg/ecommercepage.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center bottom;
+  background-size: cover;
+  height: 100%;
   z-index: 3;
 }
 /* .bottomnav li {
@@ -230,13 +251,10 @@ width: 100%;
 }
 
 #underlineLink{
-  text-decoration: none;
-  list-style: none;
- 
+  text-decoration: none; 
 }
 
-.login-form{
- 
+.login-form{ 
   background-image: url("/img/signInImg/ecommerce.jpg");
   padding-top: 20px; 
   background-attachment: fixed;
@@ -245,7 +263,7 @@ width: 100%;
   width:100%;
   max-width:330px;
   padding: 15px;
-  margin: auto;
+ margin: auto;
   height: 100%;
   box-sizing: border-box;
   backface-visibility: hidden;
